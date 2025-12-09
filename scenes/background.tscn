@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx4h1ha0jo6go"]
+
+[ext_resource type="Script" uid="uid://u34lolp701d6" path="res://scripts/background.gd" id="1_oabld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
+size = Vector2(16.000002, 1010)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(720, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po0nb"]
+size = Vector2(2036, 175)
+
+[node name="Background" type="Node2D"]
+script = ExtResource("1_oabld")
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="Line2D" type="Line2D" parent="WallLeft"]
+points = PackedVector2Array(0, 0, 0, 1024)
+width = 15.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(-0.49999523, 514)
+shape = SubResource("RectangleShape2D_7dm0k")
+
+[node name="WallRight" type="StaticBody2D" parent="."]
+position = Vector2(712, 0)
+
+[node name="Line2D" type="Line2D" parent="WallRight"]
+points = PackedVector2Array(0, 0, 0, 1024)
+width = 15.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(0, 504)
+shape = SubResource("RectangleShape2D_7dm0k")
+
+[node name="WallUp" type="StaticBody2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="WallUp"]
+points = PackedVector2Array(0, 0, 720, 0)
+width = 15.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallUp"]
+position = Vector2(360, 0)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(8, 1039)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(294, 69.5)
+shape = SubResource("RectangleShape2D_po0nb")
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

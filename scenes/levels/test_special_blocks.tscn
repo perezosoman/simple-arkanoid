@@ -1,0 +1,41 @@
+[gd_scene load_steps=11 format=4 uid="uid://dnu87yh1n7xiu"]
+
+[ext_resource type="Script" uid="uid://dppjnc5b1m4jg" path="res://scripts/level.gd" id="1_4r7so"]
+[ext_resource type="PackedScene" uid="uid://dx4h1ha0jo6go" path="res://scenes/background.tscn" id="2_p8awp"]
+[ext_resource type="PackedScene" uid="uid://ss0500d6lig2" path="res://scenes/ball.tscn" id="3_yp7kg"]
+[ext_resource type="PackedScene" uid="uid://ftkq4gsfsa0t" path="res://scenes/player.tscn" id="4_m11fk"]
+[ext_resource type="PackedScene" uid="uid://c3p87o0a1qqbu" path="res://scenes/blocks/block.tscn" id="5_fk7q5"]
+[ext_resource type="PackedScene" uid="uid://clx4sd6pqtvfu" path="res://scenes/blocks/hard_block.tscn" id="6_01ki5"]
+[ext_resource type="PackedScene" uid="uid://ed13xv1r5uc1" path="res://scenes/blocks/unbreakable_block.tscn" id="7_ppiiu"]
+[ext_resource type="Script" uid="uid://cptsarjkdgqm8" path="res://scripts/tile_map_layer.gd" id="8_oaxp8"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ppiiu"]
+resource_name = "Blocks"
+scenes/1/scene = ExtResource("5_fk7q5")
+scenes/2/scene = ExtResource("6_01ki5")
+scenes/3/scene = ExtResource("7_ppiiu")
+
+[sub_resource type="TileSet" id="TileSet_oaxp8"]
+tile_size = Vector2i(147, 34)
+sources/0 = SubResource("TileSetScenesCollectionSource_ppiiu")
+
+[node name="Level" type="Node2D" groups=["level_controller"]]
+script = ExtResource("1_4r7so")
+
+[node name="Background" parent="." instance=ExtResource("2_p8awp")]
+position = Vector2(0, 88)
+
+[node name="Ball" parent="." instance=ExtResource("3_yp7kg")]
+position = Vector2(401, 390)
+
+[node name="Player" parent="." instance=ExtResource("4_m11fk")]
+position = Vector2(360, 989)
+scale = Vector2(4, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(67, 130)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAQAAAAIAAAAAAAAAAQAAAAMAAAAAAAAAAQAAAAQAAAAAAAAAAQAAAAUAAAAAAAAAAQAAAAYAAAAAAAAAAQAAAAcAAAAAAAAAAQAAAAgAAAAAAAAAAQAAAAkAAAAAAAAAAQABAAAAAAAAAAAAAQABAAEAAAAAAAAAAgABAAIAAAAAAAAAAgABAAMAAAAAAAAAAgABAAQAAAAAAAAAAgABAAUAAAAAAAAAAgABAAYAAAAAAAAAAwABAAcAAAAAAAAAAgABAAgAAAAAAAAAAQABAAkAAAAAAAAAAQACAAAAAAAAAAAAAQACAAEAAAAAAAAAAgACAAIAAAAAAAAAAgACAAMAAAAAAAAAAgACAAQAAAAAAAAAAgACAAUAAAAAAAAAAgACAAYAAAAAAAAAAwACAAcAAAAAAAAAAgACAAgAAAAAAAAAAQACAAkAAAAAAAAAAQADAAAAAAAAAAAAAQADAAEAAAAAAAAAAQADAAIAAAAAAAAAAQADAAMAAAAAAAAAAQADAAQAAAAAAAAAAQADAAUAAAAAAAAAAQADAAYAAAAAAAAAAQADAAcAAAAAAAAAAQADAAgAAAAAAAAAAQADAAkAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_oaxp8")
+script = ExtResource("8_oaxp8")
+
+[connection signal="ball_lost" from="Background" to="." method="_on_background_ball_lost"]

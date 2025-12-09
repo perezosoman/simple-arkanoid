@@ -1,0 +1,15 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b6ycisctoi8kl"]
+
+[ext_resource type="PackedScene" uid="uid://c3p87o0a1qqbu" path="res://scenes/blocks/block.tscn" id="1_l6g24"]
+[ext_resource type="PackedScene" uid="uid://clx4sd6pqtvfu" path="res://scenes/blocks/hard_block.tscn" id="2_of5wh"]
+[ext_resource type="PackedScene" uid="uid://ed13xv1r5uc1" path="res://scenes/blocks/unbreakable_block.tscn" id="3_7qhd1"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_qxy0u"]
+resource_name = "Blocks"
+scenes/1/scene = ExtResource("1_l6g24")
+scenes/2/scene = ExtResource("2_of5wh")
+scenes/3/scene = ExtResource("3_7qhd1")
+
+[resource]
+tile_size = Vector2i(147, 34)
+sources/0 = SubResource("TileSetScenesCollectionSource_qxy0u")

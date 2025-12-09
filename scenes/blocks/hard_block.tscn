@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://clx4sd6pqtvfu"]
+
+[ext_resource type="Script" uid="uid://w2dmc36bmvtx" path="res://scripts/blocks/hard_block.gd" id="1_gov0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qncar"]
+size = Vector2(144, 32)
+
+[node name="HardBlock" type="StaticBody2D" groups=["block"]]
+script = ExtResource("1_gov0o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qncar")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -71.0
+offset_top = -16.0
+offset_right = -31.0
+offset_bottom = 24.0
+scale = Vector2(3.573188, 0.7772302)
+color = Color(0.2683471, 0.58657026, 0.29929927, 1)

@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=3 uid="uid://e20kk7vffts0"]
+
+[ext_resource type="Script" uid="uid://pyfihqrwyf0v" path="res://scripts/game_over.gd" id="1_8u835"]
+[ext_resource type="FontFile" uid="uid://bc235vpvb7hwv" path="res://resources/Arka_solid.ttf" id="1_qhwd3"]
+[ext_resource type="Texture2D" uid="uid://dy82d4uwyg511" path="res://resources/repetir.png" id="2_3ku7b"]
+[ext_resource type="Texture2D" uid="uid://rlvyb7pkmynv" path="res://resources/salir.png" id="3_8ko1d"]
+
+[sub_resource type="Theme" id="Theme_3ku7b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ko1d"]
+font = ExtResource("1_qhwd3")
+font_size = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvr53"]
+content_margin_top = 15.0
+content_margin_right = 30.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0.63529414, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjvyo"]
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 0.078431375, 0.0627451, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_8u835")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -366.0
+offset_right = 349.0
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 17
+theme_override_constants/margin_top = 17
+theme_override_constants/margin_right = 17
+theme_override_constants/margin_bottom = 17
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_3ku7b")
+color = Color(0.10980392, 0.12156863, 0.18039216, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+modulate = Color(0.99215686, 1, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_8ko1d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spacer" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Repeat" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.96862745, 1)
+theme_override_fonts/font = ExtResource("1_qhwd3")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_tvr53")
+text = "REPETIR"
+icon = ExtResource("2_3ku7b")
+alignment = 2
+expand_icon = true
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qhwd3")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_qjvyo")
+text = "SALIR"
+icon = ExtResource("3_8ko1d")
+alignment = 2
+expand_icon = true
+
+[node name="spacer_2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Repeat" to="." method="_on_repeat_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

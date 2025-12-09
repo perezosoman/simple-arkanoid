@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4l260h0prd0l"]
+
+[ext_resource type="Texture2D" uid="uid://b7i0b272qmeu6" path="res://resources/corazon.png" id="1_m6e0p"]
+[ext_resource type="FontFile" uid="uid://bc235vpvb7hwv" path="res://resources/Arka_solid.ttf" id="2_27fn8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nltto"]
+font = ExtResource("2_27fn8")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_ibotj"]
+font_size = 40
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_horizontal_guides_ = [69.0]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 60)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+columns = 5
+
+[node name="Heart" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_m6e0p")
+
+[node name="Heart2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_m6e0p")
+
+[node name="Heart3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_m6e0p")
+
+[node name="Heart4" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_m6e0p")
+
+[node name="Heart5" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_m6e0p")
+
+[node name="ScoreText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Points: "
+label_settings = SubResource("LabelSettings_nltto")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScorePoints" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "0000"
+label_settings = SubResource("LabelSettings_ibotj")
+vertical_alignment = 1

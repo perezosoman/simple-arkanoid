@@ -1,0 +1,29 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfv6po51h533m"]
+
+[ext_resource type="Script" uid="uid://cp317grrj6thc" path="res://scripts/main.gd" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://ysltngpvhpun" path="res://scenes/welcome.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://bd270h3yo81o2" path="res://scenes/levels/level_1.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://csfhd6hhltvcj" path="res://scenes/levels/level_3.tscn" id="2_tipki"]
+[ext_resource type="PackedScene" uid="uid://cwyyk40xakov3" path="res://scenes/levels/level_2.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://b4l260h0prd0l" path="res://scenes/ui.tscn" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://dbf7rb2x7s2g4" path="res://scripts/ui.gd" id="5_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://e20kk7vffts0" path="res://scenes/game_over.tscn" id="6_tipki"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_lquwl")
+levels = Array[PackedScene]([ExtResource("2_tipki"), ExtResource("3_tbgi4"), ExtResource("2_jyhfs")])
+
+[node name="Welcome" parent="." instance=ExtResource("2_0wfyh")]
+
+[node name="UI" parent="." instance=ExtResource("4_tefeu")]
+visible = false
+z_index = 10
+script = ExtResource("5_o6xl0")
+
+[node name="GameOver" parent="." instance=ExtResource("6_tipki")]
+visible = false
+z_index = 100
+
+[connection signal="start_game" from="Welcome" to="." method="_on_welcome_start_game"]
+[connection signal="exit_game" from="GameOver" to="." method="_on_game_over_exit_game"]
+[connection signal="repeat_level" from="GameOver" to="." method="_on_game_over_repeat_level"]

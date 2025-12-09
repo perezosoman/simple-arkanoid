@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ed13xv1r5uc1"]
+
+[ext_resource type="Script" uid="uid://c7x8pwrbhwo4m" path="res://scripts/blocks/unbreakable_block.gd" id="1_6lh8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lh8t"]
+size = Vector2(144, 32)
+
+[node name="UnbreakableBlock" type="StaticBody2D"]
+script = ExtResource("1_6lh8t")
+metadata/_custom_type_script = "uid://crkpb08svm1cc"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6lh8t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -71.0
+offset_top = -16.0
+offset_right = -31.0
+offset_bottom = 24.0
+scale = Vector2(3.573188, 0.7772302)
+color = Color(0.49019608, 0.49019608, 0.54901963, 1)
