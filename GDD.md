@@ -1,4 +1,4 @@
-# Game Design Document (GDD) - Arkanoid Clone
+# Game Design Document (GDD) - Simple Arkanoid 
 
 ## 1. Resumen del Juego
 **Título:** Arkanoid Clone (Nombre provisional)
