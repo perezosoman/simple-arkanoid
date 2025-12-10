@@ -31,9 +31,15 @@ jobs:
           godot --headless --verbose --export-release "Web" "$BUILD_DIR/web/index.html"
           echo "Web Build content:"
           ls $BUILD_DIR/web
-      - name: Upload Artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: web
-          path: $BUILD_DIR/web/index*
-          if-no-files-found: error
+          name: godot-builds
+          path: build/**
+      - name: Publish itch.io
+        env:
+          ITCHIO_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
+          ITCHIO_USER: ${{ secrets.ITCHIO_USER }}
+          ITCHIO_GAME: ${{ secrets.ITCHIO_GAME }}
+        run: |
+          ./butler push $BUILD_DIR/web $ITCHIO_USER/$ITCHIO_GAME:html5
