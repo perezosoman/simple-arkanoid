@@ -29,6 +29,10 @@ jobs:
           mkdir -v -p $BUILD_DIR/web
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "Web" "$BUILD_DIR/web/index.html"
+          ls $BUILD_DIR/web
+          ls $BUILD_DIR
+          ls .
+          ls $PROJECT_PATH
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
