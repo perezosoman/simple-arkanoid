@@ -38,7 +38,7 @@ jobs:
           path: build/**
       - name: Publish itch.io
         env:
-          ITCHIO_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
           ITCHIO_USER: ${{ secrets.ITCHIO_USER }}
           ITCHIO_GAME: ${{ secrets.ITCHIO_GAME }}
         run: |
