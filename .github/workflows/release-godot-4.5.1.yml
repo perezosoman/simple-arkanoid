@@ -33,4 +33,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: web
-          path: $BUILD_DIR/web
+          path: $BUILD_DIR/web/*
+          if-no-files-found: error
