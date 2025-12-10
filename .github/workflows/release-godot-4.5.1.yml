@@ -1,0 +1,24 @@
+name: Release and build arkanoid-simple
+on:
+  push:
+    branches: [main, test-ci]
+    tags: ["release"]
+  workflow_dispatch:
+
+env:
+  BUILD_DIR: build
+  GODOT_VERSION: "4.5.1-stable"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: barichello/godot-ci:4.5
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run commands in container
+        run: |
+          # inside container context via job-level container
+          uname -a
