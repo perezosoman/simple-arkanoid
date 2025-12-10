@@ -42,4 +42,5 @@ jobs:
           ITCHIO_USER: ${{ secrets.ITCHIO_USER }}
           ITCHIO_GAME: ${{ secrets.ITCHIO_GAME }}
         run: |
+          butler login
           butler push $BUILD_DIR/web $ITCHIO_USER/$ITCHIO_GAME:html5
