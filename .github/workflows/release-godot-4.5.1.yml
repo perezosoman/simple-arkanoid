@@ -22,3 +22,11 @@ jobs:
         run: |
           # inside container context via job-level container
           uname -a
+      - name: Export HTML5
+        run: ./tools/godot --export "Web" $BUILD_DIR/html5/index.html
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: godot-builds
+          path: $BUILD_DIR
