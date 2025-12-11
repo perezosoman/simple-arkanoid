@@ -41,11 +41,18 @@ jobs:
         with:
           name: godot-builds
           path: build/**
+  publish:
+    runs-on: ubuntu-latest
+    container: barichello/godot-ci:4.5
+    environment: ITCHIO
+    timeout-minutes: 90
+    steps:
       - name: Publish itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
           ITCHIO_USER: ${{ secrets.ITCHIO_USER }}
           ITCHIO_GAME: ${{ secrets.ITCHIO_GAME }}
         run: |
+          ls $BUILD_DIR/web
           butler login
           butler push $BUILD_DIR/web $ITCHIO_USER/$ITCHIO_GAME:html5
