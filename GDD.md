@@ -38,10 +38,14 @@ El juego es una recreación del clásico Arkanoid/Breakout donde el jugador cont
 ### 4.3. Bloques (Blocks)
 - **Script:** `block.gd`
 - **Comportamiento:** Al ser golpeados, emiten una señal, reproducen una animación de desaparición (tween de escala y opacidad) y se eliminan.
+- **Tipos de Bloques:**
+    - **Normal:** Se destruye con 1 golpe.
+    - **Resistente (HardBlock):** Requiere 2 golpes. Al primer golpe cambia de color.
+    - **Indestructible (UnbreakableBlock):** No se destruye. Actúa como obstáculo.
 
 ### 4.4. Niveles
 - **Gestión:** `main.gd` y `level.gd`
-- **Estructura:** Los niveles son escenas instanciadas (`level_1.tscn`, `level_2.tscn`) que contienen la disposición de los bloques.
+- **Estructura:** Los niveles son escenas instanciadas (`level_1.tscn`, `level_2.tscn`) que utilizan `TileMapLayer` para posicionar los bloques mediante "scene tiles".
 
 ## 5. Interfaz de Usuario (UI)
 - **Pantalla de Bienvenida:** Muestra el título y botón "Jugar".
