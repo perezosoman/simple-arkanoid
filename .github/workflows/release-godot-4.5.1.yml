@@ -1,4 +1,8 @@
 name: Release and build arkanoid-simple
+
+concurrency:
+  group: ITCHIO
+  cancel-in-progress: true
 on:
   push:
     branches: [main, test-ci]
@@ -14,6 +18,7 @@ jobs:
   build-web:
     runs-on: ubuntu-latest
     container: barichello/godot-ci:4.5
+    environment: ITCHIO
     timeout-minutes: 90
     steps:
       - name: Checkout
