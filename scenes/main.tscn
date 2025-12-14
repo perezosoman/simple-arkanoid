@@ -11,7 +11,7 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lquwl")
-levels = Array[PackedScene]([ExtResource("2_tipki"), ExtResource("3_tbgi4"), ExtResource("2_jyhfs")])
+levels = Array[PackedScene]([ExtResource("2_jyhfs"), ExtResource("3_tbgi4"), ExtResource("2_tipki")])
 
 [node name="Welcome" parent="." instance=ExtResource("2_0wfyh")]
 
