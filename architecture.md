@@ -65,10 +65,10 @@ graph TD
         Background[Background (Node2D)]
         Player[Player (CharacterBody2D)]
         Ball[Ball (CharacterBody2D)]
-        BlockList[block-list (Node)]
+        TileMapLayer[TileMapLayer (TileMapLayer)]
         Block1[Block (StaticBody2D)]
-        Block2[Block (StaticBody2D)]
-        BlockN[Block... (StaticBody2D)]
+        Block2[HardBlock (StaticBody2D)]
+        BlockN[UnbreakableBlock... (StaticBody2D)]
     end
 
     Root --> Main
@@ -80,10 +80,10 @@ graph TD
     Level --> Background
     Level --> Player
     Level --> Ball
-    Level --> BlockList
-    BlockList --> Block1
-    BlockList --> Block2
-    BlockList --> BlockN
+    Level --> TileMapLayer
+    TileMapLayer --> Block1
+    TileMapLayer --> Block2
+    TileMapLayer --> BlockN
 ```
 
 ## Flujo de Navegación de Pantallas

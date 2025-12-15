@@ -23,6 +23,9 @@ classDiagram
     class StaticBody2D {
         <<Built-in>>
     }
+    class TileMapLayer {
+        <<Built-in>>
+    }
 
     class Main {
         +Array[PackedScene] levels
@@ -50,6 +53,16 @@ classDiagram
         <<Signal>> block_was_hit
         +hit()
         +destroy_me()
+    }
+    
+    class HardBlock {
+        +int hp
+        +Color color_hit
+        +hit()
+    }
+    
+    class UnbreakableBlock {
+        +hit()
     }
 
     class Ball {
@@ -85,6 +98,8 @@ classDiagram
     Main --|> Node
     LevelBase --|> Node
     Block --|> StaticBody2D
+    HardBlock --|> Block
+    UnbreakableBlock --|> Block
     Ball --|> CharacterBody2D
     Player --|> CharacterBody2D
     Background --|> Node2D
@@ -95,7 +110,8 @@ classDiagram
     Main o-- LevelBase : Manages
     Main o-- Welcome : UI
     Main o-- GameOver : UI
-    LevelBase o-- Block : Contains
+    LevelBase o-- TileMapLayer : Contains
+    LevelBase o-- Block : Contains via TileMapLayer
     LevelBase o-- Ball : Spawns
     LevelBase o-- Player : Contains
     LevelBase o-- Background : Contains
