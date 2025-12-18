@@ -21,12 +21,14 @@ sources/0 = SubResource("TileSetScenesCollectionSource_ppiiu")
 
 [node name="Level" type="Node2D" groups=["level_controller"]]
 script = ExtResource("1_4r7so")
+metadata/_edit_horizontal_guides_ = [622.0]
+metadata/_edit_vertical_guides_ = [153.0]
 
 [node name="Background" parent="." instance=ExtResource("2_p8awp")]
 position = Vector2(0, 88)
 
 [node name="Ball" parent="." instance=ExtResource("3_yp7kg")]
-position = Vector2(401, 390)
+position = Vector2(393, 625)
 
 [node name="Player" parent="." instance=ExtResource("4_m11fk")]
 position = Vector2(360, 989)
@@ -37,5 +39,8 @@ position = Vector2(67, 130)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAQAAAAIAAAAAAAAAAQAAAAMAAAAAAAAAAQAAAAQAAAAAAAAAAQAAAAUAAAAAAAAAAQAAAAYAAAAAAAAAAQAAAAcAAAAAAAAAAQAAAAgAAAAAAAAAAQAAAAkAAAAAAAAAAQABAAAAAAAAAAAAAQABAAEAAAAAAAAAAgABAAIAAAAAAAAAAgABAAMAAAAAAAAAAgABAAQAAAAAAAAAAgABAAUAAAAAAAAAAgABAAYAAAAAAAAAAwABAAcAAAAAAAAAAgABAAgAAAAAAAAAAQABAAkAAAAAAAAAAQACAAAAAAAAAAAAAQACAAEAAAAAAAAAAgACAAIAAAAAAAAAAgACAAMAAAAAAAAAAgACAAQAAAAAAAAAAgACAAUAAAAAAAAAAgACAAYAAAAAAAAAAwACAAcAAAAAAAAAAgACAAgAAAAAAAAAAQACAAkAAAAAAAAAAQADAAAAAAAAAAAAAQADAAEAAAAAAAAAAQADAAIAAAAAAAAAAQADAAMAAAAAAAAAAQADAAQAAAAAAAAAAQADAAUAAAAAAAAAAQADAAYAAAAAAAAAAQADAAcAAAAAAAAAAQADAAgAAAAAAAAAAQADAAkAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_oaxp8")
 script = ExtResource("8_oaxp8")
+
+[node name="Respawn" type="Marker2D" parent="."]
+position = Vector2(384, 635)
 
 [connection signal="ball_lost" from="Background" to="." method="_on_background_ball_lost"]

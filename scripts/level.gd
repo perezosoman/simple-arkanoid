@@ -4,6 +4,7 @@ class_name LevelBase
 signal next_level
 signal lost_life
 signal increase_point
+@onready var respawn_ball:Marker2D = $Respawn
 
 
 func _ready() -> void:
@@ -19,7 +20,8 @@ func _connect_blocks() -> void:
 
 func start_new_game() -> void:
 	var new_ball: Ball = preload("res://scenes/ball.tscn").instantiate()
-	new_ball.set_deferred("position", Vector2(520, 520))
+	var ball_position := respawn_ball.position
+	new_ball.set_deferred("position", ball_position)
 	call_deferred("add_child", new_ball)
 
 
