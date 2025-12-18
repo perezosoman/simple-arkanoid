@@ -16,7 +16,7 @@ position = Vector2(0, 88)
 position = Vector2(360, 459)
 
 [node name="Player" parent="." instance=ExtResource("4_m11fk")]
-position = Vector2(370, 880)
+position = Vector2(370, 1001)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(62, 131)
