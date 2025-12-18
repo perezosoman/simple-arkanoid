@@ -13,14 +13,17 @@ script = ExtResource("1_8qukl")
 position = Vector2(0, 88)
 
 [node name="Ball" parent="." instance=ExtResource("3_qsp8v")]
-position = Vector2(126, 376)
+position = Vector2(350, 386)
 
 [node name="Player" parent="." instance=ExtResource("4_nt80m")]
-position = Vector2(88, 896)
+position = Vector2(346, 1001)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(49, 132)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAAQAAAAMAAAAAAAAAAgAAAAQAAAAAAAAAAQABAAAAAAAAAAAAAQABAAIAAAAAAAAAAQABAAMAAAAAAAAAAgABAAQAAAAAAAAAAQACAAAAAAAAAAAAAQACAAIAAAAAAAAAAQACAAMAAAAAAAAAAgACAAQAAAAAAAAAAQADAAAAAAAAAAAAAQADAAIAAAAAAAAAAQADAAMAAAAAAAAAAgADAAQAAAAAAAAAAQAAAAEAAAAAAAAAAgABAAEAAAAAAAAAAgACAAEAAAAAAAAAAgADAAEAAAAAAAAAAgA=")
 tile_set = ExtResource("5_l37oo")
+
+[node name="Respawn" type="Marker2D" parent="."]
+position = Vector2(341, 386)
 
 [connection signal="ball_lost" from="Background" to="." method="_on_background_ball_lost"]

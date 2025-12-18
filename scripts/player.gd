@@ -3,11 +3,10 @@ extends CharacterBody2D
 var min_x := 88
 var max_x := 633
 
-var target_position: Vector2 = Vector2.ZERO
-
+@onready var target_position: Vector2 = position
 @onready var start_position: Vector2 = position
 
-const SPEED := 500
+const SPEED := 600
 const THRESHOLD := 8
 
 

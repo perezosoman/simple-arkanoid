@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=4 uid="uid://drlkcl654d6nm"]
+
+[ext_resource type="Script" uid="uid://dppjnc5b1m4jg" path="res://scripts/level.gd" id="1_wqmlt"]
+[ext_resource type="PackedScene" uid="uid://dx4h1ha0jo6go" path="res://scenes/background.tscn" id="2_ws36c"]
+[ext_resource type="PackedScene" uid="uid://ss0500d6lig2" path="res://scenes/ball.tscn" id="3_v5t3b"]
+[ext_resource type="PackedScene" uid="uid://ftkq4gsfsa0t" path="res://scenes/player.tscn" id="4_axts3"]
+[ext_resource type="TileSet" uid="uid://b6ycisctoi8kl" path="res://scenes/levels/blocks-tileset.tres" id="5_7rhvc"]
+
+[node name="Level0" type="Node2D" groups=["level_controller"]]
+script = ExtResource("1_wqmlt")
+
+[node name="Background" parent="." instance=ExtResource("2_ws36c")]
+position = Vector2(0, 88)
+metadata/_edit_lock_ = true
+
+[node name="Ball" parent="." instance=ExtResource("3_v5t3b")]
+position = Vector2(347, 453)
+
+[node name="Player" parent="." instance=ExtResource("4_axts3")]
+position = Vector2(360, 1001)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(55, 131)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAQAAAAIAAAAAAAAAAQAAAAMAAAAAAAAAAQABAAMAAAAAAAAAAQABAAQAAAAAAAAAAQACAAQAAAAAAAAAAQADAAQAAAAAAAAAAQADAAMAAAAAAAAAAQADAAIAAAAAAAAAAQADAAEAAAAAAAAAAQADAAAAAAAAAAAAAQACAAAAAAAAAAAAAQACAAEAAAAAAAAAAQABAAEAAAAAAAAAAQABAAAAAAAAAAAAAQACAAIAAAAAAAAAAQABAAIAAAAAAAAAAQACAAMAAAAAAAAAAQAAAAQAAAAAAAAAAQAAAAUAAAAAAAAAAQABAAUAAAAAAAAAAQACAAUAAAAAAAAAAQADAAUAAAAAAAAAAQA=")
+tile_set = ExtResource("5_7rhvc")
+
+[node name="Respawn" type="Marker2D" parent="."]
+position = Vector2(347, 453)
+
+[connection signal="ball_lost" from="Background" to="." method="_on_background_ball_lost"]
