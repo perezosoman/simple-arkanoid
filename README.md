@@ -1,3 +1,10 @@
+# Introducción
+Este es un juego realizado en Godot v4 como parte del proyecto del canal de youtube de Perezosoman. Durante diversos videos se hace un ejercicio didactico de desarrollo de un  juego simple en Godot. 
+El juego es tosco y realizado como ejercicio de aprendizaje. 
+Los videos puede verse en el canal : https://www.youtube.com/@perezosoman 
+La solucion además despliega el juego en Itch.io : https://perezosoman.itch.io/simple-godot-arkanoid
+
+
 # Documentación del Proyecto Arkanoid
 
 Esta documentación detalla la estructura del proyecto, el flujo de carga de niveles y la interacción entre las escenas mediante señales.
