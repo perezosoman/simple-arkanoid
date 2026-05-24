@@ -45,12 +45,14 @@ classDiagram
         <<Signal>> lost_life
         <<Signal>> increase_point
         +start_new_game()
+        -_connect_blocks()
         -_on_block_block_was_hit()
         -_on_background_ball_lost()
     }
 
     class Block {
         <<Signal>> block_was_hit
+        +bool _is_dead
         +hit()
         +destroy_me()
     }
@@ -91,8 +93,15 @@ classDiagram
     }
 
     class Global {
+        <<Signal>> score_changed
+        <<Signal>> lives_changed
         +int score
         +int lives
+    }
+
+    class UI_Points {
+        +update_score(new_score)
+        +update_lives(new_lives)
     }
 
     Main --|> Node
@@ -106,15 +115,17 @@ classDiagram
     Welcome --|> Control
     GameOver --|> Control
     Global --|> Node
+    UI_Points --|> Control
 
     Main o-- LevelBase : Manages
     Main o-- Welcome : UI
     Main o-- GameOver : UI
+    Main o-- UI_Points : HUD
     LevelBase o-- TileMapLayer : Contains
-    LevelBase o-- Block : Contains via TileMapLayer
     LevelBase o-- Ball : Spawns
     LevelBase o-- Player : Contains
     LevelBase o-- Background : Contains
+    Block o-- TileMapLayer : Placed via
 ```
 
 ## Diagrama de Secuencia: Flujo de Carga de Niveles
