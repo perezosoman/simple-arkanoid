@@ -11,13 +11,13 @@ on:
 
 env:
   BUILD_DIR: build
-  GODOT_VERSION: "4.5"
+  GODOT_VERSION: "4.6"
   PROJECT_PATH: "${{ github.workspace }}"
 
 jobs:
   build-web:
     runs-on: ubuntu-latest
-    container: barichello/godot-ci:4.5
+    container: barichello/godot-ci:4.6.3
     environment: ITCHIO
     timeout-minutes: 90
     steps:
