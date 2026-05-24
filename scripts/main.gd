@@ -14,6 +14,8 @@ func _ready() -> void:
 	welcome.visible = true
 	ui.visible = false
 	game_over.visible = false
+	Global.score_changed.connect(ui.update_score)
+	Global.lives_changed.connect(ui.update_lives)
 
 # ---------------------------------
 
@@ -25,7 +27,6 @@ func start_game() -> void:
 	current_level_index = 0
 	Global.lives = 5
 	Global.score = 0
-	ui.update_lives()
 	load_level()
 
 
@@ -67,13 +68,12 @@ func _on_level_lost_life() -> void:
 	if is_game_over:
 		return
 	# Pierde una vida
+	Global.lives = max(0, Global.lives - 1)
 	if Global.lives > 0:
-		Global.lives -= 1
 		current_level.start_new_game()
 	else:
-		# Global.lives = 0
+		is_game_over = true
 		show_game_over()
-	ui.update_lives()
 	
 func _on_level_completed() -> void:
 	current_level_index += 1

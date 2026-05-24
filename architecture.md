@@ -26,8 +26,8 @@ stateDiagram-v2
             
             PelotaEnMovimiento --> BloqueDestruido: Colisión
             BloqueDestruido --> VerificarVictoria
-            VerificarVictoria --> NivelCompletado: Bloques <= 0
-            VerificarVictoria --> PelotaEnMovimiento: Bloques > 0
+            VerificarVictoria --> NivelCompletado: breakable_alive == 0
+            VerificarVictoria --> PelotaEnMovimiento: breakable_alive > 0
         }
     }
 

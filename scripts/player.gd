@@ -11,17 +11,16 @@ const THRESHOLD := 8
 
 
 func _physics_process(_delta: float) -> void:
-	var direction_x := target_position.x - position.x
-	if abs(direction_x) > THRESHOLD:
-		direction_x = sign(direction_x)
-		velocity = Vector2(direction_x * SPEED,0)
+	var diff := target_position.x - position.x
+	if abs(diff) > THRESHOLD:
+		velocity.x = sign(diff) * SPEED
+		velocity.y = 0
 		move_and_slide()
-		# Mantener la posicion de Y fija
-		position.y = start_position.y
-	else: 
-		# Detenemos el player al llegar a la posicion objetivo
+	else:
 		velocity = Vector2.ZERO
 		position.x = target_position.x
+	# Keep paddle at fixed Y level
+	position.y = start_position.y
 		
 
 

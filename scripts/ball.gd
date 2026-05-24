@@ -6,10 +6,12 @@ var direction: Vector2 = Vector2(1, 1)
 @export var speed: float = 5
 
 func _physics_process(_delta: float) -> void:
-	var collided := move_and_collide(direction * speed * _delta)
-	if (collided):
-		var normal: Vector2 = collided.get_normal()
-		direction = direction.bounce(normal)
-		if collided.get_collider() is Block:
-			var block: Block = collided.get_collider()
-			block.hit()
+	velocity = direction * speed
+	move_and_slide()
+	var collision_count := get_slide_collision_count()
+	if collision_count > 0:
+		var collision := get_slide_collision(0)
+		direction = direction.bounce(collision.get_normal())
+		var collider := collision.get_collider()
+		if collider is Block:
+			(collider as Block).hit()
