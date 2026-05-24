@@ -11,7 +11,7 @@ on:
 
 env:
   BUILD_DIR: build
-  GODOT_VERSION: "4.6"
+  GODOT_VERSION: "4.6.3"
   PROJECT_PATH: "${{ github.workspace }}"
 
 jobs:
